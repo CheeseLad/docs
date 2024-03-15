@@ -1,0 +1,41 @@
+site_name: Jake Farrell
+site_url: https://docs.jakefarrell.ie/
+nav:
+  - Home: index.md
+  - About: about.md
+  - Homelab: homelab.md
+  - Redbrick: redbrick.md
+  - MPS: mps.md
+theme:
+  name: material
+  font:
+    text: Roboto
+  logo: assets/avatar.png
+  favicon: assets/avatar.png
+  language: en 
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.footer
+    - navigation.tabs
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/mastodon 
+      link: https://fosstodon.org/@squidfunk
+  generator: true
