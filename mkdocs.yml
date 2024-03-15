@@ -15,7 +15,9 @@ nav:
     - Redbrick Information: redbrick/redbrick.md
     - Email Generator: redbrick/email-generator.md
     - Secretary Handover: redbrick/secretary-handover.md
-  - MPS: mps/mps.md
+  - MPS: 
+    - MPS Information: mps/mps.md
+    - Website: mps/website.md
 theme:
   name: material
   font:
@@ -47,7 +49,7 @@ plugins:
 
 extra:
   social:
-    - icon: fontawesome/solid/mail
+    - icon: fontawesome/solid/envelope
       link: mailto:jake_farrell@outlook.com
       name: Send me an email!
     - icon: fontawesome/brands/github
