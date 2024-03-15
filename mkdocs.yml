@@ -1,5 +1,10 @@
 site_name: Jake Farrell
 site_url: https://docs.jakefarrell.ie/
+site_description: My Documentation
+
+repo_name: CheeseLad/docs-jakefarrell
+repo_url: https://github.com/CheeseLad/docs-jakefarrell
+
 nav:
   - Home: index.md
   - About: about.md
@@ -38,9 +43,25 @@ theme:
 
 plugins:
   - search
+  - material-plausible
 
 extra:
   social:
-    - icon: fontawesome/brands/mastodon 
-      link: https://fosstodon.org/@squidfunk
-  generator: true
+    - icon: fontawesome/solid/mail
+      link: mailto:jake_farrell@outlook.com
+      name: Send me an email!
+    - icon: fontawesome/brands/github
+      link: https://github.com/CheeseLad
+      name: Check out my GitHub!
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/jake-farrell-2a4674239/
+      name: Connect with me on LinkedIn!
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/jakefarrell2003/
+      name: Follow my Instagram!
+  generator: false
+
+  analytics:
+    provider: plausible
+    domain: docs.jakefarrell.ie
+    src: "https://plausible.jakefarrell.ie/js/script.js"
