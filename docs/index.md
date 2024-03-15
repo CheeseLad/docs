@@ -1,17 +1,3 @@
-# Welcome to MkDocs
+# Welcome to Jake Farrell's Documentation
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+This is a collection of documentation for various projects and services that I have worked on. This documentation is a work in progress and will be updated as I work on new projects and services.
