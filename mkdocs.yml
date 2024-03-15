@@ -3,9 +3,14 @@ site_url: https://docs.jakefarrell.ie/
 nav:
   - Home: index.md
   - About: about.md
-  - Homelab: homelab.md
-  - Redbrick: redbrick.md
-  - MPS: mps.md
+  - Homelab:
+    - Homelab Information: homelab/homelab.md
+    - Services: homelab/services.md
+  - Redbrick: 
+    - Redbrick Information: redbrick/redbrick.md
+    - Email Generator: redbrick/email-generator.md
+    - Secretary Handover: redbrick/secretary-handover.md
+  - MPS: mps/mps.md
 theme:
   name: material
   font:
