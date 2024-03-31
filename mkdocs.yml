@@ -18,6 +18,8 @@ nav:
   - MPS: 
     - MPS Information: mps/mps.md
     - Website: mps/website.md
+  - Projects: 
+    - The Experiment: projects/the-experiment.md
 theme:
   name: material
   font:
