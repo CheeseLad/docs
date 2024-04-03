@@ -4,7 +4,9 @@ This is a collection of documentation for various projects and services that I h
 
 ## Projects
 
-Roll On
-DCUMPS Website
-Personal Website
-Homelab
+- Roll On
+- DCUMPS Website
+- Personal Website
+- Homelab
+
+Documentation inspiration from [James Hackett](https://docs.james-hackett.ie/)

@@ -7,10 +7,10 @@ repo_url: https://github.com/CheeseLad/docs-jakefarrell
 
 nav:
   - Home: index.md
-  - About: about.md
   - Homelab:
     - Homelab Information: homelab/homelab.md
     - Services: homelab/services.md
+    - Devices: homelab/devices.md
   - Redbrick: 
     - Redbrick Information: redbrick/redbrick.md
     - Email Generator: redbrick/email-generator.md
