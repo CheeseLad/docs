@@ -7,7 +7,8 @@ My homelab consists of a Dell Optiplex 5060 running Debian 12 that was saved fro
 ### Specs
 
 - **CPU**: Intel Core i3-8100
-- **RAM**: 4GB DDR4 2400MHz
+- **RAM**: 16GB DDR4
+- **Storage**: 256GB NVMe SSD, 750GB HDD, 2TB HDD
 - **Storage**: 3TB Total Storage (256GB NVMe SSD, 750GB HDD, 2TB HDD)
 
 
