@@ -12,6 +12,7 @@ nav:
     - Services: homelab/services.md
     - Service Info:
       - Pterodactyl: homelab/services/pterodactyl.md
+      - Portainer: homelab/services/portainer.md
     - Devices: homelab/devices.md
   - Redbrick: 
     - Redbrick Information: redbrick/redbrick.md
