@@ -39,3 +39,67 @@ When researching on how to set up an email system with a custom domain, I discov
 ![Image](https://i.jakefarrell.ie/u/jYkUBf.png)
 5. If you want a custom signature like the one shown, you can contact me and I'll make one for you
 6. Click `Save` at the bottom of the page and you're done!
+
+<table class="wrapper" style="margin: 0px; border-spacing: 0px !important; border-collapse: collapse;" border="0" width="550" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<table class="wrapper" style="margin: 0px; border-spacing: 0px !important; border-collapse: collapse;" border="0" width="auto" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="padding: 0px !important;" valign="top">
+<table class="wrapper" style="margin: 0px; border-spacing: 0px !important; border-collapse: collapse;" border="0" width="auto" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="padding: 0px !important;">
+<table style="margin: 0px; border-collapse: collapse; border-spacing: 0px !important;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="padding: 0px 10px 0px 0px !important;"><img style="width: 120px; border-radius: 0px; display: block;" src="https://i.imgur.com/DtVinyG.png" alt="avatar" width="120" border="0" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="padding: 0px !important;" valign="top" width="100%">
+<table class="wrapper" style="margin: 0px; border-spacing: 0px !important; border-collapse: collapse;" border="0" width="auto" cellspacing="0" cellpadding="0">
+<tbody>
+<tr style="font-weight: 600;">
+<td style="padding: 0px !important; font-size: 0px;" valign="top">
+<p style="font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 0px; line-height: 150%; display: block;"><span style="color: #409eff; font-weight: 600;" data-darkreader-inline-color="">Jake Farrell</span></p>
+</td>
+</tr>
+<tr>
+<td style="padding: 0px 0px 5px !important; font-size: 0px;" valign="top">
+<p style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; margin: 0px; line-height: 150%;"><span><span style="color: #000000;" data-darkreader-inline-color="">Media Production Society</span></span><span><span style="padding: 0px;"> </span><span style="color: #000000;" data-darkreader-inline-color="">Webmaster</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="padding: 0px !important; font-size: 0px;" valign="top">
+<p style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; margin: 0px; line-height: 150%; display: block;"><span style="padding-right: 0px; font-weight: 600; color: #409eff;" data-darkreader-inline-color="">Website:&nbsp;&nbsp;</span><a style="text-decoration: none !important; color: #010101;" href="https://www.dcumps.ie" data-darkreader-inline-color="">www.dcumps.ie</a></p>
+</td>
+</tr>
+<tr>
+<td style="padding: 0px !important; font-size: 0px;" valign="top">
+<p style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; margin: 0px; line-height: 150%; display: block;"><span style="padding-right: 0px; font-weight: 600; color: #409eff;" data-darkreader-inline-color="">Email:&nbsp;&nbsp;</span><a style="text-decoration: none !important; color: #010101;" href="mailto:webmaster@dcumps.ie" data-darkreader-inline-color="">webmaster@dcumps.ie</a></p>
+</td>
+</tr>
+<tr>
+<td style="padding: 0px !important; font-size: 0px;" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td style="padding: 2px 0px 0px !important;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>

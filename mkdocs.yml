@@ -52,6 +52,7 @@ theme:
   features:
     - navigation.footer
     - navigation.tabs
+    - navigation.top
 
 plugins:
   - search
