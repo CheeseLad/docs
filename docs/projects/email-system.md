@@ -17,7 +17,9 @@ When researching on how to set up an email system with a custom domain, I discov
 
 1. Go to the [Purelymail Website](https://purelymail.com/user/login)
 2. Enter your email address and password (these will be provided to you by me)
-3. Make sure you are on the `Webmail Login` and not the `Account Login`, otherwise you will not be able to log in.
+3. Make sure you are on the `Webmail Login` and not the `Account Login`, otherwise you won't be able to log in.
+
+![Image](https://i.jakefarrell.ie/u/EE0zKA.png)
 
 ## Changing your name and signature
 
