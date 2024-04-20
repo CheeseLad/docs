@@ -13,6 +13,11 @@
 
 When researching on how to set up an email system with a custom domain, I discoverd Purelymail that was recommended by some members of Redbrick. It is cheap and easy to set up, with not much limitations on what you can do.
 
+## Information
+
+- All emails will be in the format of `@dcumps.ie`, `@thecollegeview.ie` or `@dcufotosoc.ie`
+- All emails sent to these accounts will automatically be sent to your college email address too.
+
 ## Accessing your email in the browser
 
 1. Go to the [Purelymail Website](https://purelymail.com/user/login)
