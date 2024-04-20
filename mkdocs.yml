@@ -17,12 +17,16 @@ nav:
   - Redbrick: 
     - Redbrick Information: redbrick/redbrick.md
     - Email Generator: redbrick/email-generator.md
-    - Secretary Handover: redbrick/secretary-handover.md
+    - Secretary: redbrick/secretary.md
   - MPS: 
-    - MPS Information: mps/mps.md
+    - MPS Information: mps/info.md
     - Website: mps/website.md
   - Projects: 
     - The Experiment: projects/the-experiment.md
+    - Email System: projects/email-system.md
+    - Personal Website: projects/personal-website.md
+    - Roll On: projects/roll-on.md
+
 theme:
   name: material
   font:

@@ -4,9 +4,9 @@ This is a collection of documentation for various projects and services that I h
 
 ## Projects
 
-- Roll On
-- DCUMPS Website
-- Personal Website
-- Homelab
+- [Roll On](projects/roll-on.md)
+- [DCUMPS Website](mps/website.md)
+- [Personal Website](projects/personal-website.md)
+- [Homelab](homelab/homelab.md)
 
 Documentation inspiration from [James Hackett](https://docs.james-hackett.ie/)
