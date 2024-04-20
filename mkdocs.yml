@@ -8,11 +8,12 @@ repo_url: https://github.com/CheeseLad/docs
 nav:
   - Home: index.md
   - Homelab:
-    - Homelab Information: homelab/homelab.md
+    - Homelab Information: homelab/info.md
     - Services: homelab/services.md
     - Service Info:
       - Pterodactyl: homelab/services/pterodactyl.md
       - Portainer: homelab/services/portainer.md
+      - Homepage: homelab/services/homepage.md
     - Devices: homelab/devices.md
   - Redbrick: 
     - Redbrick Information: redbrick/redbrick.md
