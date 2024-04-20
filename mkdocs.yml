@@ -1,9 +1,9 @@
 site_name: Jake Farrell
 site_url: https://docs.jakefarrell.ie/
-site_description: My Documentation
+site_description: My Docs & Info
 
-repo_name: CheeseLad/docs-jakefarrell
-repo_url: https://github.com/CheeseLad/docs-jakefarrell
+repo_name: CheeseLad/docs
+repo_url: https://github.com/CheeseLad/docs
 
 nav:
   - Home: index.md
