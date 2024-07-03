@@ -12,14 +12,14 @@
 ## Phone
 
 - **Model**: Apple iPhone 13 Pro
-- **OS**: iOS 17.3
+- **OS**: iOS 17.5.1
 - **Offsite Backup**: iCloud 200GB
-- **Local Backup**: [Homelab](homelab.md)
+- **Local Backup**: [Homelab](info.md)
 
 ## Laptop
 
 - **Model**: Lenovo Thinkpad T480
-- **OS**: Windows 10
+- **OS**: Windows 11
 - **CPU**: Intel Core i5-8350U
 - **RAM**: 24GB DDR4
 - **Storage**: 256GB NVMe SSD

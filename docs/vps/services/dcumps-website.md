@@ -1,4 +1,4 @@
-# DCUMPS Website
+# DCU Media Production Society Website
 
 ## Docker Compose File
 
@@ -26,4 +26,4 @@ networks:
 
 ## Notes
 
-- Access CheeseLad's website here: [`https://dcumps.ie`](https://dcumps.ie)
+- Access the DCU Media Production Society website here: [`https://dcumps.ie`](https://dcumps.ie)

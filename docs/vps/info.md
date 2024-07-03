@@ -10,8 +10,6 @@
 
 ## Services
 
-- [CheeseLad Website](/vps/services/cheeselad-website)
-- [DCU Fotosoc Website](/vps/services/dcufotosoc-website)
-- [DCUMPS Website](/vps/services/dcumps-website)
-- [Portainer](/vps/services/portainer)
-- [Traefik](/vps/services/traefik)
+- [Clubs & Socs API](services/clubsandsocs-api.md)
+- [DCU Fotosoc Website](services/dcufotosoc-website.md)
+- [DCU Media Production Society Website](services/dcumps-website.md)

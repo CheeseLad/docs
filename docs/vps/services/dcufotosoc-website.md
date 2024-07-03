@@ -22,4 +22,4 @@ networks:
 
 ## Notes
 
-- Access CheeseLad's website here: [`https://dcufotosoc.jakefarrell.ie`](https://dcufotosoc.jakefarrell.ie)
+- Access thee DCU Fotosoc website here: [`https://dcufotosoc.jakefarrell.ie`](https://dcufotosoc.jakefarrell.ie)

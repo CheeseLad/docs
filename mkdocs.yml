@@ -6,27 +6,32 @@ repo_name: CheeseLad/docs
 repo_url: https://github.com/CheeseLad/docs
 
 nav:
-  - Home: index.md
+  - Welcome: index.md
   - Homelab:
     - Homelab Information: homelab/info.md
-    - Services: homelab/services.md
-    - Service Info:
+    - Service Information:
       - Pterodactyl: homelab/services/pterodactyl.md
       - Portainer: homelab/services/portainer.md
       - Homepage: homelab/services/homepage.md
     - Devices: homelab/devices.md
-  - Redbrick: 
-    - Redbrick Information: redbrick/redbrick.md
-    - Email Generator: redbrick/email-generator.md
-    - Secretary: redbrick/secretary.md
-  - MPS: 
-    - MPS Information: mps/info.md
-    - Website: mps/website.md
+  - VPS:
+    - VPS Information: vps/info.md
+    - Service Information:
+      - Clubs & Socs API: vps/services/clubsandsocs-api.md
+      - DCU Fotosoc Website: vps/services/dcufotosoc-website.md
+      - DCU Media Production Society Website: vps/services/dcumps-website.md
+  #- Redbrick: 
+  #  - Redbrick Information: redbrick/redbrick.md
+  #  - Email Generator: redbrick/email-generator.md
+  #  - Secretary: redbrick/secretary.md
+  #- MPS: 
+  #  - MPS Information: mps/info.md
+  #  - Website: mps/website.md
   - Projects: 
-    - The Experiment: projects/the-experiment.md
+  #  - The Experiment: projects/the-experiment.md
     - Email System: projects/email-system.md
-    - Personal Website: projects/personal-website.md
-    - Roll On: projects/roll-on.md
+  #  - Personal Website: projects/personal-website.md
+  #  - Roll On: projects/roll-on.md
 
 theme:
   name: material
