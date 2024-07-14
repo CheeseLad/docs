@@ -1,4 +1,4 @@
-# Pi-Hole
+# Pi-hole
 
 ## Description
 
@@ -34,5 +34,5 @@ services:
 
 ## Notes
 
-- Access Pi-Hole at `http://cheeselab:3002/admin` (Local Network Only)
+- Access Pi-Hole at [http://cheeselab:3002/admin](http://cheeselab:3002/admin) (Local Network Only)
 - Per device configuration required to use Pi-Hole as a DNS server as to make it optional for devices on the network.

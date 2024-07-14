@@ -29,4 +29,4 @@ networks:
 
 ## Notes
 
-- Access Homepage at `https://local.jakefarrell.ie` (Local Network Only)
+- Access Homepage at [https://local.jakefarrell.ie](https://local.jakefarrell.ie) (Local Network Only)

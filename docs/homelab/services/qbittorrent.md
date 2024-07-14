@@ -30,4 +30,4 @@ services:
 
 ## Notes
 
-- Access Qbittorrent at `http://cheeselab:3001` (Local Network Only)
+- Access Qbittorrent at [http://cheeselab:3001](http://cheeselab:3001) (Local Network Only)

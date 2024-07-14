@@ -27,4 +27,4 @@ services:
 
 ## Notes
 
-- Access Radarr at `http://cheeselab:7878` (Local Network Only)
+- Access Radarr at [http://cheeselab:7878](http://cheeselab:7878) (Local Network Only)

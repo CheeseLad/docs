@@ -10,9 +10,16 @@ nav:
   - Homelab:
     - Homelab Information: homelab/info.md
     - Service Information:
-      - Pterodactyl: homelab/services/pterodactyl.md
-      - Portainer: homelab/services/portainer.md
+      - HedgeDoc: homelab/services/hedgedoc.md
       - Homepage: homelab/services/homepage.md
+      - Pi-hole: homelab/services/pi-hole.md
+      - Plex: homelab/services/plex.md
+      - Portainer: homelab/services/portainer.md
+      - Qbittorrent: homelab/services/qbittorrent.md
+      - Radarr: homelab/services/radarr.md
+      - Sonarr: homelab/services/sonarr.md
+      - Tautulli: homelab/services/tautulli.md
+      - Uptime Kuma: homelab/services/uptime-kuma.md
     - Devices: homelab/devices.md
   - VPS:
     - VPS Information: vps/info.md

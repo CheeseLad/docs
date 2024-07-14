@@ -22,6 +22,6 @@ services:
 
 ## Notes
 
-- Access Uptime Kuma at `https://status.jakefarrell.ie`
+- Access Uptime Kuma at [https://status.jakefarrell.ie](https://status.jakefarrell.ie)
 - Login credentials required to access the dashboard
 - Utilises Cloudflare Zero Trust for security and access control, allowing for secure access to Uptime Kuma from anywhere.

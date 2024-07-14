@@ -25,4 +25,4 @@ services:
 
 ## Notes
 
-- Access Tautulli at `http://cheeselab:8181` (Local Network Only)
+- Access Tautulli at [http://cheeselab:8181](http://cheeselab:8181) (Local Network Only)

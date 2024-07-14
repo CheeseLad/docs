@@ -49,5 +49,5 @@ volumes:
 
 ## Notes
 
-- Access HedgeDoc at `https://md.jakefarrell.ie`
+- Access HedgeDoc at [https://md.jakefarrell.ie](https://md.jakefarrell.ie)
 - Utilises Cloudflare Zero Trust for security and access control, allowing for secure access to HedgeDoc from anywhere.

@@ -26,5 +26,5 @@ volumes:
 
 ## Notes
 
-- Access Portainer at `https://cheeselab:9443` (Local Network Only)
+- Access Portainer at [https://cheeselab:9443](https://cheeselab:9443) (Local Network Only)
 - Web UI only works with HTTPS, so you need to use `https://` instead of `http://`, certificate is not required.

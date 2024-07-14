@@ -27,4 +27,4 @@ services:
 
 ## Notes
 
-- Access Sonarr at `http://cheeselab:8989` (Local Network Only)
+- Access Sonarr at [http://cheeselab:8989](http://cheeselab:8989) (Local Network Only)

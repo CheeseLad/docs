@@ -48,4 +48,4 @@ services:
 
 ## Notes
 
-- Access Plex at `http://cheeselab:32400/web` (Local Network Only)
+- Access Plex at [http://cheeselab:32400/web](http://cheeselab:32400/web) (Local Network Only)
