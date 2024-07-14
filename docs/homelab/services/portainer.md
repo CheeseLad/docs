@@ -1,10 +1,13 @@
 # Portainer
 
+## Description
+
+Portainer Community Edition is a lightweight service delivery platform for containerized applications that can be used to manage Docker, Swarm, Kubernetes and ACI environments. It is designed to be as simple to deploy as it is to use. The application allows you to manage all your orchestrator resources (containers, images, volumes, networks and more) through a ‘smart’ GUI and/or an extensive API.
+
 
 ## Docker Compose File
 
 ```yaml
-version: "3"
 services:
   portainer:
     container_name: portainer
@@ -23,5 +26,5 @@ volumes:
 
 ## Notes
 
-- Access Portainer at `https://192.168.1.3:9443` (Local Network Only)
+- Access Portainer at `https://cheeselab:9443` (Local Network Only)
 - Web UI only works with HTTPS, so you need to use `https://` instead of `http://`, certificate is not required.

@@ -1,8 +1,8 @@
 # Homepage
 
-  A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery. 
+## Description
 
-My Homepage is a custom dashboard that I use to access all of my services in one place. It is a fully static, fast, secure, and highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. It is easily configured via YAML files or through docker label discovery.
+A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery. 
 
 ## Docker Compose File
 
