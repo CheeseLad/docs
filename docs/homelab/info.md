@@ -29,7 +29,8 @@ My homelab consists of a Dell Optiplex 5060 running Debian 12 that was saved fro
 - [Sonarr](./services/sonarr.md)
 - [Speedtest-Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker)
 - [Tautulli](./services/tautulli.md)
-- [The Experiment (My Discord Bot)](https://github.com/CheeseLad/the-experiment/)
+- [The Experiment](https://github.com/CheeseLad/the-experiment/)
+- [Traefik](https://traefik.io/)
 - [Uptime Kuma](./services/uptime-kuma.md)
 
 ## Services (Native)

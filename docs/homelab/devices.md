@@ -12,7 +12,7 @@
 ## Phone
 
 - **Model**: Apple iPhone 13 Pro
-- **OS**: iOS 17.5.1
+- **OS**: iOS 17.6.1
 - **Offsite Backup**: iCloud 200GB
 - **Local Backup**: [Homelab](info.md)
 

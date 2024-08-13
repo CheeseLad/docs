@@ -27,6 +27,11 @@ nav:
       - Clubs & Socs API: vps/services/clubsandsocs-api.md
       - DCU Fotosoc Website: vps/services/dcufotosoc-website.md
       - DCU Media Production Society Website: vps/services/dcumps-website.md
+      - MySQL Database: vps/services/mysql-database.md
+      - Personal Website: vps/services/personal-website.md
+      - Plausible Analytics: vps/services/plausible-analytics.md
+      - Portainer: vps/services/portainer.md
+      - Shlink URL Shortener: vps/services/shlink.md
   #- Redbrick: 
   #  - Redbrick Information: redbrick/redbrick.md
   #  - Email Generator: redbrick/email-generator.md
