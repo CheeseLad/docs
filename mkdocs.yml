@@ -10,15 +10,28 @@ nav:
   - Homelab:
     - Homelab Information: homelab/info.md
     - Service Information:
-      - HedgeDoc: homelab/services/hedgedoc.md
+      - CA298 React Exam: homelab/services/ca298-reactexam.md
+      - CA298 University System: homelab/services/ca298-universitysystem.md
+      - Cable Network Website Backend: homelab/services/cablenetwork-website-backend.md
+      - Cloudflared: homelab/services/cloudflared.md
+      - CollegeGuide: homelab/services/collegeguide.md
+      - DDClient: homelab/services/ddclient.md
+      - Dozzle: homelab/services/dozzle.md
+      - Flaresolverr: homelab/services/flaresolverr.md
+      - Hedgedoc: homelab/services/hedgedoc.md
       - Homepage: homelab/services/homepage.md
-      - Pi-hole: homelab/services/pi-hole.md
+      - Jellyfin: homelab/services/jellyfin.md
+      - Jellyseerr: homelab/services/jellyseerr.md
+      - MySQL Database: homelab/services/mysql-database.md
+      - Overseerr: homelab/services/overseerr.md
+      - Paperless Ngx: homelab/services/paperless-ngx.md
+      - Pi Hole: homelab/services/pi-hole.md
       - Plex: homelab/services/plex.md
       - Portainer: homelab/services/portainer.md
-      - Qbittorrent: homelab/services/qbittorrent.md
-      - Radarr: homelab/services/radarr.md
-      - Sonarr: homelab/services/sonarr.md
+      - Pterodactyl: homelab/services/pterodactyl.md
+      - Speedtest Tracker: homelab/services/speedtest-tracker.md
       - Tautulli: homelab/services/tautulli.md
+      - Traefik: homelab/services/traefik.md
       - Uptime Kuma: homelab/services/uptime-kuma.md
     - Devices: homelab/devices.md
   - VPS:

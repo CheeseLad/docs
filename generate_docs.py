@@ -173,6 +173,9 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     title_name = title_name.replace("Cablenetwork", "Cable Network")
     title_name = title_name.replace("Collegeguide", "CollegeGuide")
     title_name = title_name.replace("Mysql", "MySQL")
+    title_name = title_name.replace("Ddclient", "DDClient")
+    title_name = title_name.replace("Reactexam", "React Exam")
+    title_name = title_name.replace("Universitysystem", "University System")
 
     print(f"Generating description for: {title_name}")
     description = get_chatbot_response(title_name)
