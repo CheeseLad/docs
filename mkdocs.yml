@@ -107,4 +107,4 @@ extra:
   analytics:
     provider: plausible
     domain: docs.jakefarrell.ie
-    src: "https://plausible.jakefarrell.ie/js/script.js"
+    src: "https://pa.jakefarrell.ie/js/script.js"
