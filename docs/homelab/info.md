@@ -6,10 +6,12 @@ My homelab consists of a Dell Optiplex 5060 running Debian 12 that was saved fro
 
 ## Specs
 
+- **Model**: Dell Optiplex 5060
+- **OS**: Debian 12
 - **CPU**: Intel Core i3-8100
 - **RAM**: 16GB DDR4
-- **Storage**: 256GB NVMe SSD, 750GB HDD, 2TB HDD
-- **Storage**: 3TB Total Storage (256GB NVMe SSD, 750GB HDD, 2TB HDD)
+- **Storage**: 256GB NVMe SSD, 6TB HDD
+- **Offsite Backup**: Rclone encrypted to Google Drive
 
 ## Services (Docker)
 
