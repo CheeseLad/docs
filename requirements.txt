@@ -3,3 +3,4 @@ mkdocs-material
 pyyaml
 groq
 black
+python-dotenv

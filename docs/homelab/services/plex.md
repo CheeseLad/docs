@@ -1,24 +1,19 @@
 # Plex
+    
+    
 
 ## Description
 
-Plex is a media server that allows you to stream your media collection to any device. It is a powerful tool that can transcode media on-the-fly to ensure compatibility with any device.
+Plex is a popular media server that allows you to organize and stream your personal media collection, including movies, TV shows, and music, to various devices. Its purpose is to provide a centralized hub for all your media, making it easily accessible and playable on devices like smart TVs, smartphones, and gaming consoles. Plex also offers useful features like automatic content organization, metadata tagging, and live TV streaming, making it a great option for home entertainment. With Plex, you can enjoy your favorite media from anywhere, at any time, with a user-friendly interface and robust features.
 
 ## Docker Compose File
 
 ```yaml
-
-networks:
-  default:
-    driver: bridge
-
 services:
   plex:
     image: plexinc/pms-docker:public
     container_name: plex
     restart: unless-stopped
-    networks:
-      - default
     ports:
       - "32400:32400/tcp"
       - "3005:3005/tcp"
@@ -32,9 +27,8 @@ services:
     devices:
       - /dev/dri:/dev/dri
     volumes:
-      - $DOCKERDIR/appdata/plex:/config
-      - /mnt/usb1/Plex:/media
-      - /mnt/usb2/Plex:/media2
+      - ~/storage/plex:/config
+      - /mnt/storage-hdd/Media:/media
       - /dev/shm:/transcode
     environment:
       TZ: $TZ
@@ -43,9 +37,14 @@ services:
       PLEX_GID: $PGID
       ADVERTISE_IP: http://$SERVER_IP:32400/
       ALLOWED_NETWORKS: $LOCAL_NETWORK
+    networks:
+      - cheeselab
 
+networks:
+  cheeselab:
+    external: true
 ```
 
 ## Notes
 
-- Access Plex at [http://cheeselab:32400/web](http://cheeselab:32400/web) (Local Network Only)
+- Access `plex` at [http://cheeselab:32400](http://cheeselab:32400) (Local Network Only)

@@ -3,6 +3,10 @@ from pathlib import Path
 from groq import Groq
 import re
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 system_prompt = {
     "role": "system",

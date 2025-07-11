@@ -1,10 +1,10 @@
-# HedgeDoc
+# Hedgedoc
+    
+    
 
 ## Description
 
-HedgeDoc (formerly known as CodiMD) is an open-source, web-based, self-hosted, collaborative markdown editor.
-
-You can use it to easily collaborate on notes, graphs and even presentations in real-time. All you need to do is to share your note-link to your co-workers and they’re ready to go.
+Hedgedoc is a self-hosted note-taking and collaborative writing platform that allows users to create and edit documents in real-time. Its purpose is to provide a simple and secure way for individuals or teams to work together on notes, documents, and ideas. Hedgedoc features a distraction-free editor, support for markdown formatting, and real-time collaboration, making it a great tool for homelab users. With Hedgedoc, users can host their own instance, keeping control over their data and privacy.
 
 ## Docker Compose File
 
@@ -27,7 +27,7 @@ services:
     container_name: hedgedoc
     environment:
       - CMD_DB_URL=$CMD_DB_URL
-      - CMD_DOMAIN=$CMD_DOMAIN
+      - CMD_DOMAIN=md.jakefarrell.ie
       - CMD_IMAGE_UPLOAD_TYPE=filesystem
       - CMD_IMAGE_UPLOAD_PATH=/hedgedoc/public/uploads
       - CMD_EMAIL=true
@@ -36,7 +36,7 @@ services:
       - CMD_SESSION_SECRET=$CMD_SESSION_SECRET
 
     volumes:
-      - ./uploads:/hedgedoc/public/uploads
+      - ~/storage/hedgedoc/uploads:/hedgedoc/public/uploads
     ports:
       - "3000:3000"
     restart: unless-stopped
@@ -49,5 +49,4 @@ volumes:
 
 ## Notes
 
-- Access HedgeDoc at [https://md.jakefarrell.ie](https://md.jakefarrell.ie)
-- Utilises Cloudflare Zero Trust for security and access control, allowing for secure access to HedgeDoc from anywhere.
+- Access `hedgedoc` at [https://md.jakefarrell.ie](https://md.jakefarrell.ie) (Publicly Accessible)

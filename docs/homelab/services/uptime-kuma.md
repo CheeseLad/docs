@@ -1,8 +1,10 @@
 # Uptime Kuma
+    
+    
 
 ## Description
 
-Uptime Kuma is a fancy self-hosted monitoring tool. It can monitor HTTP(s) and TCP endpoints, and can send notifications via Email, Discord, Slack, Telegram, and Webhooks. It also has a beautiful dashboard that can be customized to your liking.
+Uptime Kuma is a self-hosted monitoring tool that helps you keep track of your websites, servers, and other services' uptime and downtime. Its purpose is to send notifications when something goes wrong, so you can quickly act and minimize losses. Uptime Kuma is known for its ease of use, customizable alerts, and detailed reporting features. It's a great addition to any homelab, allowing you to monitor your services from a single, user-friendly dashboard.
 
 ## Docker Compose File
 
@@ -11,10 +13,11 @@ services:
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
-    hostname: uptime-kuma
     volumes:
-      - ./uptime-kuma-data:/app/data
+      - ~/storage/uptime-kuma:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - APP_URL="https://status.jakefarrell.ie"
     ports:
       - 3003:3001
     restart: unless-stopped
@@ -22,6 +25,4 @@ services:
 
 ## Notes
 
-- Access Uptime Kuma at [https://status.jakefarrell.ie](https://status.jakefarrell.ie)
-- Login credentials required to access the dashboard
-- Utilises Cloudflare Zero Trust for security and access control, allowing for secure access to Uptime Kuma from anywhere.
+- Access `uptime-kuma` at [https://status.jakefarrell.ie](https://status.jakefarrell.ie) (Publicly Accessible)

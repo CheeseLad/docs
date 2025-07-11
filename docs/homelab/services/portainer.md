@@ -1,9 +1,10 @@
 # Portainer
+    
+    
 
 ## Description
 
-Portainer Community Edition is a lightweight service delivery platform for containerized applications that can be used to manage Docker, Swarm, Kubernetes and ACI environments. It is designed to be as simple to deploy as it is to use. The application allows you to manage all your orchestrator resources (containers, images, volumes, networks and more) through a ‘smart’ GUI and/or an extensive API.
-
+Portainer is a popular, open-source management platform for Docker, making it easy to manage and monitor your containers, images, and volumes. Its purpose is to simplify the process of deploying and managing containerized applications, making it a great tool for home servers and homelabs. With Portainer, you can easily create, manage, and troubleshoot your containers, as well as access features like templates, backups, and user management. It provides a user-friendly web interface that's perfect for those who want to manage their Docker environment without using the command line.
 
 ## Docker Compose File
 
@@ -16,7 +17,7 @@ services:
     ports:
       - 9443:9443
     volumes:
-      - ./config/data:/data
+      - ~/storage/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     
@@ -26,5 +27,4 @@ volumes:
 
 ## Notes
 
-- Access Portainer at [https://cheeselab:9443](https://cheeselab:9443) (Local Network Only)
-- Web UI only works with HTTPS, so you need to use `https://` instead of `http://`, certificate is not required.
+- Access `portainer` at [https://cheeselab:9443](https://cheeselab:9443) (Local Network Only)
