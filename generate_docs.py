@@ -178,7 +178,18 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     title_name = title_name.replace("Universitysystem", "University System")
 
     print(f"Generating description for: {title_name}")
-    description = get_chatbot_response(title_name)
+    # check if description already exists to avoid unnecessary API calls
+    existing_md_path = output_dir / f"{service_folder_name}.md"
+    if existing_md_path.exists():
+        existing_content = existing_md_path.read_text()
+        desc_match = re.search(r"## Description\s+([\s\S]+?)\s+## Docker Compose File", existing_content)
+        if desc_match:
+            description = desc_match.group(1).strip()
+            print(f"Using existing description for: {title_name}")
+        else:
+            description = get_chatbot_response(title_name)
+    else:
+        description = get_chatbot_response(title_name)
     # description = "This is a test"
     notes = notes.replace(
         "[http://cheeselab:1313](http://cheeselab:1313) (Local Network Only)",
