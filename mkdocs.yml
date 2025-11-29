@@ -1,19 +1,19 @@
 site_name: Jake Farrell
 site_url: https://docs.jakefarrell.ie/
 site_description: My Docs & Info
-
 repo_name: CheeseLad/docs
 repo_url: https://github.com/CheeseLad/docs
-
 nav:
-  - Welcome: index.md
-  - Homelab:
-    - Homelab Information: homelab/info.md
-    - Service Information:
+- Welcome: index.md
+- Homelab:
+  - Homelab Information: homelab/info.md
+  - Service Information:
       - CA298 React Exam: homelab/services/ca298-reactexam.md
       - CA298 University System: homelab/services/ca298-universitysystem.md
       - Cable Network Website Backend: homelab/services/cablenetwork-website-backend.md
+      - Cable Network Website Frontend: homelab/services/cablenetwork-website-frontend.md
       - Cloudflared: homelab/services/cloudflared.md
+      - Clubs & Socs Bot: homelab/services/clubsandsocs-bot.md
       - CollegeGuide: homelab/services/collegeguide.md
       - DDClient: homelab/services/ddclient.md
       - Dozzle: homelab/services/dozzle.md
@@ -23,6 +23,7 @@ nav:
       - Jellyfin: homelab/services/jellyfin.md
       - Jellyseerr: homelab/services/jellyseerr.md
       - MySQL Database: homelab/services/mysql-database.md
+      - Netdata: homelab/services/netdata.md
       - Overseerr: homelab/services/overseerr.md
       - Paperless Ngx: homelab/services/paperless-ngx.md
       - Pi Hole: homelab/services/pi-hole.md
@@ -31,12 +32,16 @@ nav:
       - Pterodactyl: homelab/services/pterodactyl.md
       - Speedtest Tracker: homelab/services/speedtest-tracker.md
       - Tautulli: homelab/services/tautulli.md
+      - The Experiment: homelab/services/the-experiment.md
       - Traefik: homelab/services/traefik.md
       - Uptime Kuma: homelab/services/uptime-kuma.md
-    - Devices: homelab/devices.md
-  - VPS:
-    - VPS Information: vps/info.md
-    - Service Information:
+      - Vault: homelab/services/vault.md
+      - Windows: homelab/services/windows.md
+      - macOS: homelab/services/macos.md
+  - Devices: homelab/devices.md
+- VPS:
+  - VPS Information: vps/info.md
+  - Service Information:
       - Clubs & Socs API: vps/services/clubsandsocs-api.md
       - DCU Fotosoc Website: vps/services/dcufotosoc-website.md
       - DCU Media Production Society Website: vps/services/dcumps-website.md
@@ -45,66 +50,51 @@ nav:
       - Plausible Analytics: vps/services/plausible-analytics.md
       - Portainer: vps/services/portainer.md
       - Shlink URL Shortener: vps/services/shlink.md
-  #- Redbrick: 
-  #  - Redbrick Information: redbrick/redbrick.md
-  #  - Email Generator: redbrick/email-generator.md
-  #  - Secretary: redbrick/secretary.md
-  #- MPS: 
-  #  - MPS Information: mps/info.md
-  #  - Website: mps/website.md
-  - Projects: 
-  #  - The Experiment: projects/the-experiment.md
-    - Email System: projects/email-system.md
-  #  - Personal Website: projects/personal-website.md
-  #  - Roll On: projects/roll-on.md
-
+- Projects:
+  - Email System: projects/email-system.md
 theme:
   name: material
   font:
     text: Roboto
   logo: assets/avatar.png
   favicon: assets/avatar.png
-  language: en 
+  language: en
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: deep orange
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
-
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: deep orange
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: deep orange
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: deep orange
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
   features:
-    - navigation.footer
-    - navigation.tabs
-    - navigation.top
-
+  - navigation.footer
+  - navigation.tabs
+  - navigation.top
 plugins:
-  - search
-  - material-plausible
-
+- search
+- material-plausible
 extra:
   social:
-    - icon: fontawesome/solid/envelope
-      link: mailto:jake_farrell@outlook.com
-      name: Send me an email!
-    - icon: fontawesome/brands/github
-      link: https://github.com/CheeseLad
-      name: Check out my GitHub!
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/jake-farrell-cs
-      name: Connect with me on LinkedIn!
-    - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/jakefarrell2003
-      name: Follow my Instagram!
+  - icon: fontawesome/solid/envelope
+    link: mailto:jake_farrell@outlook.com
+    name: Send me an email!
+  - icon: fontawesome/brands/github
+    link: https://github.com/CheeseLad
+    name: Check out my GitHub!
+  - icon: fontawesome/brands/linkedin
+    link: https://www.linkedin.com/in/jake-farrell-cs
+    name: Connect with me on LinkedIn!
+  - icon: fontawesome/brands/instagram
+    link: https://www.instagram.com/jakefarrell2003
+    name: Follow my Instagram!
   generator: false
-
   analytics:
     provider: plausible
     domain: docs.jakefarrell.ie
-    src: "https://pa.jakefarrell.ie/js/script.js"
+    src: https://pa.jakefarrell.ie/js/script.js

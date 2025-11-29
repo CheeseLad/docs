@@ -12,7 +12,7 @@
 ## Phone
 
 - **Model**: Apple iPhone 13 Pro
-- **OS**: iOS 18.5
+- **OS**: iOS 26.1
 - **CPU**: Apple A15 Bionic
 - **RAM**: 6GB
 - **Storage**: 128GB NVMe SSD
@@ -36,5 +36,5 @@
 - **CPU**: Intel Core i7-7700K
 - **GPU**: Nvidia GTX 1060 6GB
 - **RAM**: 24GB DDR4
-- **Storage**: 512GB NVMe SSD, 256GB SATA SSD, 1TB HDD, 2TB HDD, 5TB HDD
+- **Storage**: 512GB NVMe SSD, 1TB HDD, 2TB HDD, 5TB HDD
 - **Offsite Backup**: Rclone encrypted to Google Drive
