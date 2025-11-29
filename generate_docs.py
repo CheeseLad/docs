@@ -178,6 +178,9 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     title_name = title_name.replace("Ddclient", "DDClient")
     title_name = title_name.replace("Reactexam", "React Exam")
     title_name = title_name.replace("Universitysystem", "University System")
+    title_name = title_name.replace("Macos", "macOS")
+    title_name = title_name.replace("Clubsandsocs", "Clubs & Socs")
+    title_name = title_name.replace("Dcu", "DCU")
 
     print(f"Generating description for: {title_name}")
     # check if description already exists to avoid unnecessary API calls

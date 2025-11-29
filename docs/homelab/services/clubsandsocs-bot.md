@@ -1,4 +1,4 @@
-# Clubsandsocs Bot
+# Clubs & Socs Bot
     
     
 
