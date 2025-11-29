@@ -204,6 +204,11 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     )
 
     notes = notes.replace("http://cheeselab:9443", "https://cheeselab:9443")
+    
+    notes = notes.replace(
+        "[http://cheeselab:6022](http://cheeselab:6022) (Local Network Only)",
+        "[https://cablenetwork.jakefarrell.ie](https://cablenetwork.jakefarrell.ie) (Publicly Accessible)",
+    )
 
     md_content = f"""# {title_name}
     

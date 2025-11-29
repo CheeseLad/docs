@@ -97,10 +97,10 @@ extra:
       link: https://github.com/CheeseLad
       name: Check out my GitHub!
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/jake-farrell-2a4674239/
+      link: https://www.linkedin.com/in/jake-farrell-cs
       name: Connect with me on LinkedIn!
     - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/jakefarrell2003/
+      link: https://www.instagram.com/jakefarrell2003
       name: Follow my Instagram!
   generator: false
 
