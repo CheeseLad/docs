@@ -1,4 +1,6 @@
 # Clubs & Socs API
+    
+    
 
 ## Description
 
@@ -55,17 +57,22 @@ services:
     container_name: clubsandsocs-api
     hostname: clubsandsocs-api
     restart: unless-stopped
+    environment:
+      - PORT=4000
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.clubsandsocs-api.entrypoints=https"
       - "traefik.http.routers.clubsandsocs-api.rule=Host(`clubsandsocs.jakefarrell.ie`)"
+      - "traefik.http.services.clubsandsocs-api.loadbalancer.server.port=4000"
+      - "traefik.http.routers.clubsandsocs-api.service=clubsandsocs-api"
+
 
 networks:
   default:
-    external:
-      name: traefik_net
+    name: traefik_net
+    external: true
 ```
 
 ## Notes
 
-- Access the Clubs & Socs API here: [`https://clubsandsocs.jakefarrell.ie`](https://clubsandsocs.jakefarrell.ie)
+- Access `clubsandsocs-api` at [https://clubsandsocs.jakefarrell.ie](https://clubsandsocs.jakefarrell.ie) (Publicly Accessible via Traefik)

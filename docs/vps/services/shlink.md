@@ -1,8 +1,10 @@
 # Shlink
+    
+    
 
 ## Description
 
-Shlink is a self-hosted URL shortener that allows you to shorten URLs and serve them under your own domain. The application is built using PHP and MySQL and is designed to be lightweight and easy to use.
+Shlink is a virtual private server (VPS) service that allows you to run your own URL shortener. Its purpose is to provide a self-hosted alternative to public URL shortening services, giving you control over your links and data. With Shlink, you can create custom short URLs, track clicks, and manage your links from a simple web interface. It's a great option for those who want a private and customizable URL shortening solution.
 
 ## Docker Compose File
 
@@ -50,4 +52,5 @@ networks:
 
 ## Notes
 
-- Access Shlink here: [`https://shlink.jakefarrell.ie`](https://shlink.jakefarrell.ie)
+- Access `shlink` at [https://s.jakefarrell.ie](https://s.jakefarrell.ie) (Publicly Accessible via Traefik)
+- Access `shlink-web-client` at [https://shlink.jakefarrell.ie](https://shlink.jakefarrell.ie) (Publicly Accessible via Traefik)

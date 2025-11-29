@@ -1,4 +1,10 @@
 # Portainer
+    
+    
+
+## Description
+
+Portainer is a popular, open-source container management platform that makes it easy to manage Docker, Swarm, and Kubernetes environments. Its main purpose is to provide a simple, user-friendly interface for deploying, managing, and monitoring containers. With Portainer, you can easily create and manage containers, volumes, and networks, as well as monitor resource usage and performance. It's a great tool for anyone looking to simplify their container management workflow and make the most of their VPS or server resources.
 
 ## Docker Compose File
 
@@ -30,4 +36,4 @@ networks:
 
 ## Notes
 
-- Access Portainer here: [`https://portainer.jakefarrell.ie`](https://portainer.jakefarrell.ie)
+- Access `portainer` at [https://portainer.jakefarrell.ie](https://portainer.jakefarrell.ie) (Publicly Accessible via Traefik)
