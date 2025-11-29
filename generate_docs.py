@@ -75,6 +75,7 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
         )
         backend_url = None
         frontend_url = None
+        image = None
         if api_url_match:
             backend_url = api_url_match.group(1)
             frontend_url = backend_url.replace("-api.jakefarrell.ie", ".jakefarrell.ie")
@@ -82,6 +83,7 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
         public_env_urls = {}  # service_name -> public_url or domain
         try:
             compose_data = yaml.safe_load(compose_content)
+            image = compose_data.get("services", {}).get(service_folder_name, {}).get("image", service_folder_name)
             services = compose_data.get("services", {})
             for service_name, service_data in services.items():
                 envs = service_data.get("environment", [])
@@ -187,9 +189,9 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
             description = desc_match.group(1).strip()
             print(f"Using existing description for: {title_name}")
         else:
-            description = get_chatbot_response(title_name)
+            description = get_chatbot_response(title_name + f" ({image})")
     else:
-        description = get_chatbot_response(title_name)
+        description = get_chatbot_response(title_name + f" ({image})")
     # description = "This is a test"
     notes = notes.replace(
         "[http://cheeselab:1313](http://cheeselab:1313) (Local Network Only)",
