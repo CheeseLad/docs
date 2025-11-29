@@ -14,7 +14,7 @@ def main(services_dir, output_file, excluded_services):
             if heading_match:
                 service_name = heading_match.group(1).strip()
                 if service_name.lower().replace(" ", "-") not in excluded_services:
-                  service_list.append(f"[{service_name}](./services/{markdown_file.name})\n")
+                  service_list.append(f"- [{service_name}](./services/{markdown_file.name})\n")
                 
     sorted_service_list = sorted(service_list)
     md_content = f"""# Jake Farrell's Homelab Setup
