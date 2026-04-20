@@ -14,13 +14,13 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     restart: unless-stopped
-    user: "1000:1000"
+    user: "1000:996"
     environment:
       - HOMEPAGE_ALLOWED_HOSTS=home.jakefarrell.ie,local.jakefarrell.ie
     volumes:
       - ~/storage/homepage/config:/app/config
-      - /var/run/docker.sock:/var/run/docker.sock
       - ~/storage/homepage/images:/app/public/images
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - "3231:3000"
 ```

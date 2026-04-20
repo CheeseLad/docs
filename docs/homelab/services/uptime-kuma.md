@@ -11,7 +11,7 @@ Uptime Kuma is a self-hosted monitoring tool that helps you keep track of your w
 ```yaml
 services:
   uptime-kuma:
-    image: louislam/uptime-kuma:1
+    image: louislam/uptime-kuma:latest
     container_name: uptime-kuma
     volumes:
       - ~/storage/uptime-kuma:/app/data
@@ -21,6 +21,12 @@ services:
     ports:
       - 3003:3001
     restart: unless-stopped
+    networks:
+      - cheeselab
+
+networks:
+  cheeselab:
+    external: true
 ```
 
 ## Notes
