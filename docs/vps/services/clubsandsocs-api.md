@@ -55,7 +55,6 @@ services:
   clubsandsocs-api:
     image: ghcr.io/cheeselad/clubsandsocs-api:latest
     container_name: clubsandsocs-api
-    hostname: clubsandsocs-api
     restart: unless-stopped
     environment:
       - PORT=4000

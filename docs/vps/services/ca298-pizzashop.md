@@ -4,7 +4,7 @@
 
 ## Description
 
-CA298 Project 1: Django Frontend & Backend: Grade 100% 
+CA298 Project 1: Django Frontend & Backend: Grade 100%
 
 ## Docker Compose File
 
@@ -13,12 +13,13 @@ services:
   ca298-pizzashop:
     image: ghcr.io/cheeselad/ca298-pizzashop:latest
     container_name: ca298-pizzashop
-    hostname: ca298-pizzashop
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.ca298-pizzashop.entrypoints=https"
       - "traefik.http.routers.ca298-pizzashop.rule=Host(`pizzashop.jakefarrell.ie`)"
+    volumes:
+      - ./db.sqlite3:/app/pizzashop/db.sqlite3
 
 networks:
   default:

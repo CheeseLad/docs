@@ -13,7 +13,6 @@ services:
   thecollegeview-app:
     image: nginx:latest
     container_name: thecollegeview-app
-    hostname: thecollegeview-app
     restart: unless-stopped
     volumes:
       - ./html:/usr/share/nginx/html

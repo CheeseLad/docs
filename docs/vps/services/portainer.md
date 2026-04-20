@@ -12,7 +12,6 @@ Portainer is a popular, open-source container management platform that makes it 
 services:
   portainer:
     container_name: portainer
-    hostname: portainer
     image: portainer/portainer-ce:latest
     volumes:
       - ./data:/data
