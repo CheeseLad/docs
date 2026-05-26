@@ -8,48 +8,57 @@ nav:
 - Homelab:
   - Homelab Information: homelab/info.md
   - Service Information:
+      - Better File Search Website: homelab/services/better-file-search-website.md
+      - Bfs Postgres: homelab/services/bfs-postgres.md
+      - CA298 PizzaShop: homelab/services/ca298-pizzashop.md
       - CA298 React Exam: homelab/services/ca298-reactexam.md
       - CA298 University System: homelab/services/ca298-universitysystem.md
+      - CSC1047 Practical: homelab/services/csc1047-practical.md
       - Cable Network Website Backend: homelab/services/cablenetwork-website-backend.md
       - Cable Network Website Frontend: homelab/services/cablenetwork-website-frontend.md
       - Cloudflared: homelab/services/cloudflared.md
       - Clubs & Socs Bot: homelab/services/clubsandsocs-bot.md
       - CollegeGuide: homelab/services/collegeguide.md
+      - DCUMPS Website: homelab/services/dcumps-website.md
       - DDClient: homelab/services/ddclient.md
       - Dozzle: homelab/services/dozzle.md
       - Flaresolverr: homelab/services/flaresolverr.md
       - Hedgedoc: homelab/services/hedgedoc.md
       - Homepage: homelab/services/homepage.md
+      - Immich: homelab/services/immich.md
       - Jellyfin: homelab/services/jellyfin.md
       - Jellyseerr: homelab/services/jellyseerr.md
+      - Lidarr: homelab/services/lidarr.md
+      - Minecraft: homelab/services/minecraft.md
       - MySQL Database: homelab/services/mysql-database.md
-      - Netdata: homelab/services/netdata.md
-      - Overseerr: homelab/services/overseerr.md
+      - Navidrome: homelab/services/navidrome.md
+      - Nyan Cat: homelab/services/nyancat.md
+      - Openspeedtest: homelab/services/openspeedtest.md
       - Paperless Ngx: homelab/services/paperless-ngx.md
       - Pi Hole: homelab/services/pi-hole.md
-      - Plex: homelab/services/plex.md
       - Portainer: homelab/services/portainer.md
-      - Pterodactyl: homelab/services/pterodactyl.md
+      - Radarr: homelab/services/radarr.md
+      - Sonarr: homelab/services/sonarr.md
       - Speedtest Tracker: homelab/services/speedtest-tracker.md
-      - Tautulli: homelab/services/tautulli.md
+      - Status: homelab/services/status.md
+      - Tdarr: homelab/services/tdarr.md
+      - The College View App: homelab/services/tcvapp.md
       - The Experiment: homelab/services/the-experiment.md
-      - Traefik: homelab/services/traefik.md
       - Uptime Kuma: homelab/services/uptime-kuma.md
-      - Vault: homelab/services/vault.md
-      - Windows: homelab/services/windows.md
-      - macOS: homelab/services/macos.md
   - Devices: homelab/devices.md
 - VPS:
   - VPS Information: vps/info.md
   - Service Information:
       - Clubs & Socs API: vps/services/clubsandsocs-api.md
-      - DCU Fotosoc Website: vps/services/dcufotosoc-website.md
-      - DCU Media Production Society Website: vps/services/dcumps-website.md
       - MySQL Database: vps/services/mysql-database.md
+      - DCU Fotosoc Website: vps/services/dcufotosoc-website.md
+      - Homepage: vps/services/homepage.md
+      - Zipline: vps/services/zipline.md
+      - Plausible: vps/services/plausible-analytics.md
+      - Shlink: vps/services/shlink.md
       - Personal Website: vps/services/personal-website.md
-      - Plausible Analytics: vps/services/plausible-analytics.md
       - Portainer: vps/services/portainer.md
-      - Shlink URL Shortener: vps/services/shlink.md
+      - Traefik: vps/services/traefik.md
 - Projects:
   - Email System: projects/email-system.md
 theme:

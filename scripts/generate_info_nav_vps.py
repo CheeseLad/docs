@@ -2,7 +2,7 @@ import re
 from pathlib import Path
 import yaml
 
-INFO_FILE = "../docs/homelab/info.md"
+INFO_FILE = "../docs/vps/info.md"
 MKDOCS_FILE = "../mkdocs.yml"
 
 def extract_services_from_info(info_path):
@@ -21,7 +21,7 @@ def extract_services_from_info(info_path):
     links = re.findall(r"\[([^\]]+)\]\(([^)]+)\)", section_text)
 
     return [
-        {name: f"homelab/{path.strip('./')}"}
+        {name: f"vps/{path.strip('./')}"}
         for name, path in links
     ]
 
@@ -32,11 +32,11 @@ def update_mkdocs_nav(mkdocs_path, services):
 
     nav = mkdocs.get("nav", [])
 
-    # Find the nav → Homelab → Service Information section
+    # Find the nav → VPS → Service Information section
     for item in nav:
-        if isinstance(item, dict) and "Homelab" in item:
-            homelab_section = item["Homelab"]
-            for sub in homelab_section:
+        if isinstance(item, dict) and "VPS" in item:
+            vps_section = item["VPS"]
+            for sub in vps_section:
                 if isinstance(sub, dict) and "Service Information" in sub:
                     sub["Service Information"] = services
                     break

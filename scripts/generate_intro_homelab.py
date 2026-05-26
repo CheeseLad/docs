@@ -21,15 +21,15 @@ def main(services_dir, output_file, excluded_services):
 
 ## Introduction
 
-My homelab consists of a Dell Optiplex 5060 running Debian 12 that was saved from an e-waste bin in my college. I have been using it to host various services and applications that I use on a daily basis. Configs for many of these services can be found in the `services` directory.
+My Homelab consists of a Dell OptiPlex 5060 SFF running Debian 13 Trixie that was saved from an e-waste bin in my college. I have been using it to host various services and applications that I use on a daily basis. Configs for many of these services can be found in the `services` directory.
 
 ## Specs
 
-- **Model**: Dell Optiplex 5060
-- **OS**: Debian 12
-- **CPU**: Intel Core i3-8100
-- **RAM**: 16GB DDR4
-- **Storage**: 256GB NVMe SSD, 6TB HDD
+- **Model**: Dell OptiPlex 5060 SFF
+- **OS**: Debian 13 Trixie
+- **CPU**: Intel Core i5-8400
+- **RAM**: 48GB DDR4 2400MHz (2x 16GB, 2x 8GB)
+- **Storage**: 256GB NVMe SSD, 2TB HDD, 6TB HDD
 - **Offsite Backup**: Rclone encrypted to Google Drive
 
 ## Services (Docker)
@@ -48,18 +48,15 @@ My homelab consists of a Dell Optiplex 5060 running Debian 12 that was saved fro
 
 
 if __name__ == "__main__":
-    services_dir = "docs\\homelab\\services"
-    output_file = "docs\\homelab\\info.md"
-    
+    services_dir = "../docs/homelab/services"
+    output_file = "../docs/homelab/info.md"
+
     excluded_services = [
-      "immich", 
       "jackett", 
-      "lidarr",
-      "photoprism",
-      "radarr",
-      "sonarr",
       "transmission",
-      "wiki-dcu-lol"
+      "wiki-dcu-lol",
+      "better-file-search-website",
+      "bfs-postgres",
     ]
 
     main(services_dir, output_file, excluded_services)
