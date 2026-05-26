@@ -181,7 +181,12 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     title_name = title_name.replace("Macos", "macOS")
     title_name = title_name.replace("Clubsandsocs", "Clubs & Socs")
     title_name = title_name.replace("Dcu", "DCU")
-    title_name = title_name.replace("CA298 Pizzashop", "PizzaShop")
+    title_name = title_name.replace("CA298 Pizzashop", "CA298 PizzaShop")
+    title_name = title_name.replace("DCUmps", "DCUMPS")
+    title_name = title_name.replace("Nyancat", "Nyan Cat")
+    title_name = title_name.replace("Tcvapp", "The College View App")
+    title_name = title_name.replace("DCUfotosoc Generator", "DCU Fotosoc Newsletter Generator")
+    title_name = title_name.replace("Csc1047", "CSC1047")
 
     print(f"Generating description for: {title_name}")
     # check if description already exists to avoid unnecessary API calls
@@ -227,6 +232,21 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     notes = notes.replace(
         "[http://cheeselab:3003](http://cheeselab:3003) (Local Network Only)",
         "[https://status.jakefarrell.ie](https://status.jakefarrell.ie) (Publicly Accessible)",
+    )
+
+    notes = notes.replace(
+        "[http://cheeselab:3022](http://cheeselab:3022) (Local Network Only)",
+        "[https://nyancat.jakefarrell.ie](https://nyancat.jakefarrell.ie) (Publicly Accessible)",
+    )
+
+    notes = notes.replace(
+        "[http://cheeselab:3023](http://cheeselab:3023) (Local Network Only)",
+        "[https://tcvapp.jakefarrell.ie](https://tcvapp.jakefarrell.ie) (Publicly Accessible)",
+    )
+
+    notes = notes.replace(
+        "[http://cheeselab:3018](http://cheeselab:3018) (Local Network Only)",
+        "[https://csc1047-practical.jakefarrell.ie](https://csc1047-practical.jakefarrell.ie) (Publicly Accessible)",
     )
 
     md_content = f"""# {title_name}
