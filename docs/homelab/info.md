@@ -15,6 +15,8 @@ My Homelab consists of a Dell OptiPlex 5060 SFF running Debian 13 Trixie that wa
 
 ## Services (Docker)
 
+- [Better File Search Postgres](./services/better-file-search-postgres.md)
+- [Better File Search Website](./services/better-file-search-website.md)
 - [CA298 PizzaShop](./services/ca298-pizzashop.md)
 - [CA298 React Exam](./services/ca298-reactexam.md)
 - [CA298 University System](./services/ca298-universitysystem.md)
@@ -31,6 +33,7 @@ My Homelab consists of a Dell OptiPlex 5060 SFF running Debian 13 Trixie that wa
 - [Hedgedoc](./services/hedgedoc.md)
 - [Homepage](./services/homepage.md)
 - [Immich](./services/immich.md)
+- [Jackett](./services/jackett.md)
 - [Jellyfin](./services/jellyfin.md)
 - [Jellyseerr](./services/jellyseerr.md)
 - [Lidarr](./services/lidarr.md)
@@ -49,6 +52,7 @@ My Homelab consists of a Dell OptiPlex 5060 SFF running Debian 13 Trixie that wa
 - [Tdarr](./services/tdarr.md)
 - [The College View App](./services/tcvapp.md)
 - [The Experiment](./services/the-experiment.md)
+- [Transmission](./services/transmission.md)
 - [Uptime Kuma](./services/uptime-kuma.md)
 
 ## Services (Native)

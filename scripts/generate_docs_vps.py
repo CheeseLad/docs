@@ -267,6 +267,6 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
 
 if __name__ == "__main__":
     repo = "https://github.com/CheeseLad/vps.git"
-    output_dir = "docs\\vps\\services"
+    output_dir = "../docs/vps/services"
     
     clone_and_run(repo, output_dir)

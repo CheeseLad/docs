@@ -15,13 +15,12 @@ This VPS is used to host various services and applications that I use on a daily
 ## Services (Docker)
 
 - [Clubs & Socs API](services/clubsandsocs-api.md)
-- [MySQL Database](services/mysql-database.md)
+- [MySQL Database](services/database.md)
 - [DCU Fotosoc Website](services/dcufotosoc-website.md)
-- [Homepage](services/homepage.md)
 - [Zipline](services/zipline.md)
-- [Plausible](services/plausible-analytics.md)
+- [Plausible](services/plausible.md)
 - [Shlink](services/shlink.md)
-- [Personal Website](services/personal-website.md)
+- [Personal Website](services/portfolio.md)
 - [Portainer](services/portainer.md)
 - [Traefik](services/traefik.md)
 

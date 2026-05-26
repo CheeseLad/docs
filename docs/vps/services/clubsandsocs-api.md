@@ -56,15 +56,12 @@ services:
     image: ghcr.io/cheeselad/clubsandsocs-api:latest
     container_name: clubsandsocs-api
     restart: unless-stopped
-    environment:
-      - PORT=4000
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.clubsandsocs-api.entrypoints=https"
       - "traefik.http.routers.clubsandsocs-api.rule=Host(`clubsandsocs.jakefarrell.ie`)"
       - "traefik.http.services.clubsandsocs-api.loadbalancer.server.port=4000"
       - "traefik.http.routers.clubsandsocs-api.service=clubsandsocs-api"
-
 
 networks:
   default:

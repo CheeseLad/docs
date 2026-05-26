@@ -4,7 +4,7 @@
 
 ## Description
 
-Plausible Analytics gives you simple, privacy-friendly website analytics without cookies or personal data. It's trusted by thousands of subscribers as an alternative to Google Analytics that's easy to set up and understand. It's completely independent, self-funded and bootstrapped. 
+Plausible Analytics gives you simple, privacy-friendly website analytics without cookies or personal data. It's trusted by thousands of subscribers as an alternative to Google Analytics that's easy to set up and understand. It's completely independent, self-funded and bootstrapped.
 
 ## Docker Compose File
 

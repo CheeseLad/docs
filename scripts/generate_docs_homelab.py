@@ -64,7 +64,7 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     # Build notes section with one line per service
     notes_lines = []
     # List of services to ignore when generating access notes
-    ignored_access_notes_services = ["collegeguide-redis", "wings", "mysql-database"]
+    ignored_access_notes_services = ["collegeguide-redis", "wings", "mysql-database", "better-file-search-postgres"]
     # If the folder/file name contains '-disabled', skip all access notes
     if "-disabled" in service_folder_name:
         notes = "None"
@@ -247,6 +247,16 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     notes = notes.replace(
         "[http://cheeselab:3018](http://cheeselab:3018) (Local Network Only)",
         "[https://csc1047-practical.jakefarrell.ie](https://csc1047-practical.jakefarrell.ie) (Publicly Accessible)",
+    )
+
+    notes = notes.replace(
+        "[http://cheeselab:3024](http://cheeselab:3024) (Local Network Only)",
+        "[https://betterfilesearch.jakefarrell.ie](https://betterfilesearch.jakefarrell.ie) (Publicly Accessible)",
+    )
+
+    notes = notes.replace(
+        "[http://cheeselab:3025](http://cheeselab:3025) (Local Network Only)",
+        "[https://betterfilesearch-api.jakefarrell.ie](https://betterfilesearch-api.jakefarrell.ie) (Publicly Accessible)",
     )
 
     md_content = f"""# {title_name}

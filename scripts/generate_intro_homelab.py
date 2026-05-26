@@ -52,11 +52,7 @@ if __name__ == "__main__":
     output_file = "../docs/homelab/info.md"
 
     excluded_services = [
-      "jackett", 
-      "transmission",
       "wiki-dcu-lol",
-      "better-file-search-website",
-      "bfs-postgres",
     ]
 
     main(services_dir, output_file, excluded_services)
