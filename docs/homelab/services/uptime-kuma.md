@@ -11,13 +11,10 @@ Uptime Kuma is a self-hosted monitoring tool that helps you keep track of your w
 ```yaml
 services:
   uptime-kuma:
-    image: louislam/uptime-kuma:latest
+    image: louislam/uptime-kuma:2
     container_name: uptime-kuma
     volumes:
       - ~/storage/uptime-kuma:/app/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - APP_URL="https://status.jakefarrell.ie"
     ports:
       - 3003:3001
     restart: unless-stopped

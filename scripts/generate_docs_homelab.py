@@ -181,6 +181,7 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     title_name = title_name.replace("Macos", "macOS")
     title_name = title_name.replace("Clubsandsocs", "Clubs & Socs")
     title_name = title_name.replace("Dcu", "DCU")
+    title_name = title_name.replace("CA298 Pizzashop", "PizzaShop")
 
     print(f"Generating description for: {title_name}")
     # check if description already exists to avoid unnecessary API calls
@@ -195,7 +196,7 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
             description = get_chatbot_response(title_name + f" ({image})")
     else:
         description = get_chatbot_response(title_name + f" ({image})")
-    # description = "This is a test"
+
     notes = notes.replace(
         "[http://cheeselab:1313](http://cheeselab:1313) (Local Network Only)",
         "[https://collegeguide-blog.jakefarrell.ie](https://collegeguide-blog.jakefarrell.ie) (Publicly Accessible)",
@@ -211,6 +212,21 @@ def generate_markdown(service_folder_name, compose_content, ports_info, output_d
     notes = notes.replace(
         "[http://cheeselab:6022](http://cheeselab:6022) (Local Network Only)",
         "[https://cablenetwork.jakefarrell.ie](https://cablenetwork.jakefarrell.ie) (Publicly Accessible)",
+    )
+
+    notes = notes.replace(
+        "[http://cheeselab:3020](http://cheeselab:3020) (Local Network Only)",
+        "[https://dcumps.jakefarrell.ie](https://dcumps.jakefarrell.ie) (Publicly Accessible)",
+    )
+
+    notes = notes.replace(
+        "[http://cheeselab:3021](http://cheeselab:3021) (Local Network Only)",
+        "[https://pizzashop.jakefarrell.ie](https://pizzashop.jakefarrell.ie) (Publicly Accessible)",
+    )
+
+    notes = notes.replace(
+        "[http://cheeselab:3003](http://cheeselab:3003) (Local Network Only)",
+        "[https://status.jakefarrell.ie](https://status.jakefarrell.ie) (Publicly Accessible)",
     )
 
     md_content = f"""# {title_name}
@@ -240,6 +256,13 @@ def main(services_dir, output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Track existing service folders so we can remove stale markdown files.
+    existing_service_folders = {
+        service_folder.name
+        for service_folder in services_dir.iterdir()
+        if service_folder.is_dir()
+    }
+
     for service_folder in services_dir.iterdir():
         if service_folder.is_dir():
             # Skip folders with '-disabled' in the name
@@ -253,9 +276,15 @@ def main(services_dir, output_dir):
                 ports_info = extract_ports(compose_path)
                 generate_markdown(folder_name, compose_content, ports_info, output_dir)
 
+    # Remove markdown files for services that no longer have a folder.
+    for md_file in output_dir.glob("*.md"):
+        if md_file.stem not in existing_service_folders:
+            md_file.unlink()
+            print(f"Deleted orphaned markdown: {md_file}")
+
 
 if __name__ == "__main__":
     services_dir = "Y:\\home\\jake\\services"
-    output_dir = "docs\\homelab\\services"
+    output_dir = "C:\\Users\\Jake\\Desktop\\Programming Projects\\docs\\docs\\homelab\\services"
 
     main(services_dir, output_dir)

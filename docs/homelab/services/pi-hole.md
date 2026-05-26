@@ -18,16 +18,14 @@ services:
       - "3002:80/tcp"
       - "53:53/tcp"
       - "53:53/udp"
-      - "67:67/udp"
     environment:
       TZ: 'Europe/Dublin'
-      PIHOLE_DNS_: '8.8.8.8;8.8.4.4'
+      PIHOLE_DNS_: '192.168.1.254;8.8.8.8'
       WEBTHEME: 'default-darker'
+      FTLCONF_dns_listeningMode: 'ALL'
     volumes:
       - '~/storage/pi-hole/etc-pihole:/etc/pihole'
       - '~/storage/pi-hole/etc-dnsmasq.d:/etc/dnsmasq.d'
-    cap_add:
-      - NET_ADMIN
     restart: unless-stopped
     env_file:
      - path: /home/jake/services/pi-hole/.env
