@@ -56,7 +56,56 @@ nav:
       - Portfolio: vps/services/portfolio.md
       - Shlink: vps/services/shlink.md
 - Projects:
+  - Better File Search Website: projects/better-file-search-website.md
+  - Clubs & Socs API: projects/clubsandsocs-api.md
+  - Clubs & Socs Bot: projects/clubsandsocs-bot.md
+  - College:
+      - Ca116: projects/college/ca116.md
+      - Ca117: projects/college/ca117.md
+      - Ca170: projects/college/ca170.md
+      - Ca216 Myshell: projects/college/ca216-myshell.md
+      - Ca218: projects/college/ca218.md
+      - Ca268: projects/college/ca268.md
+      - Ca269: projects/college/ca269.md
+      - CA298 Djangoexam: projects/college/ca298-djangoexam.md
+      - CA298 PizzaShop: projects/college/ca298-pizzashop.md
+      - CA298 React Exam: projects/college/ca298-reactexam.md
+      - CA298 University System: projects/college/ca298-universitysystem.md
+      - Csc1042: projects/college/csc1042.md
+      - Csc1046 Mybridge: projects/college/csc1046-mybridge.md
+      - Csc1098 Assignments: projects/college/csc1098-assignments.md
+      - Project Euler: projects/college/project-euler.md
+  - DCU Clubs & Socs: projects/dcuclubsandsocs.md
   - Email System: projects/email-system.md
+  - File History Cleaner: projects/file-history-cleaner.md
+  - Fotosoc:
+      - Fotosoc: projects/fotosoc/fotosoc.md
+      - Fotosoc Newsletter Generator: projects/fotosoc/fotosoc-newsletter-generator.md
+  - Game Screenshots Manager: projects/game-screenshots-manager.md
+  - Helpinghand: projects/helpinghand.md
+  - Legacy Leaderboards: projects/legacy-leaderboards.md
+  - Meelreel App: projects/meelreel-app.md
+  - Mps:
+      - Mps Newsletter Generator: projects/mps/mps-newsletter-generator.md
+      - The College View App: projects/mps/thecollegeview-app.md
+  - Pantry Tracker: projects/pantry-tracker.md
+  - Portfolio: projects/portfolio.md
+  - Redbrick:
+      - Minute Redactor: projects/redbrick/minute-redactor.md
+      - Redbrick Email Generator: projects/redbrick/redbrick-email-generator.md
+      - Redbrick Webmaster Exam 2024: projects/redbrick/redbrick-webmaster-exam-2024.md
+  - Terraria:
+      - Boxinator: projects/terraria/boxinator.md
+      - Boxinatorterraria: projects/terraria/BoxinatorTerraria.md
+      - Technobladepainting: projects/terraria/technobladepainting.md
+      - Tysyoyoredux144: projects/terraria/TysYoyoRedux144.md
+      - Yoyomania: projects/terraria/YoyoMania.md
+  - The Experiment: projects/the-experiment.md
+  - Unturned:
+      - Cable Network Website: projects/unturned/cablenetwork-website.md
+      - Testplugin: projects/unturned/testplugin.md
+      - Uconomy MySQL Search: projects/unturned/uconomy-mysql-search.md
+      - Unturned Permission Generator: projects/unturned/unturned-permission-generator.md
 theme:
   name: material
   font:
