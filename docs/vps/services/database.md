@@ -11,7 +11,7 @@ MySQL database used for multiple services that require a database.
 ```yaml
 services:
   database:
-    image: mysql:8.3.0
+    image: mysql:8
     container_name: database
     restart: unless-stopped
     environment:

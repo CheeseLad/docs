@@ -18,7 +18,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - ~/storage/lidarr/config:/config
+      - ~/storage/lidarr:/config
       - /mnt/storage-hdd/Media/Music:/music
       - /mnt/storage-hdd/Downloads:/downloads
     ports:

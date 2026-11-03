@@ -35,7 +35,7 @@ services:
     restart: unless-stopped
     container_name: shlink-web-client
     volumes:
-      - ./servers.json:/usr/share/nginx/html/servers.json
+      - ~/storage/shlink/servers.json:/usr/share/nginx/html/servers.json
     depends_on:
       - shlink
     labels:

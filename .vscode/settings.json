@@ -1,8 +1,9 @@
 {
-  "cSpell.words": [
-    "dcufotosoc",
-    "Fotosoc",
-    "Purelymail",
-    "thecollegeview"
-  ]
+    "cSpell.words": [
+        "dcufotosoc",
+        "Fotosoc",
+        "Purelymail",
+        "thecollegeview"
+    ],
+    "python.terminal.useEnvFile": true
 }

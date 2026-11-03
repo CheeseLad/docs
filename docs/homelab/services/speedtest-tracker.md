@@ -10,24 +10,25 @@ Speedtest Tracker is a homelab service that monitors and tracks your internet sp
 
 ```yaml
 services:
-    speedtest-tracker:
-        image: lscr.io/linuxserver/speedtest-tracker:latest
-        restart: unless-stopped
-        container_name: speedtest-tracker
-        ports:
-            - 8765:80
-        environment:
-            - PUID=1000
-            - PGID=1000
-            - APP_KEY=${APP_KEY}
-            - DB_CONNECTION=sqlite
-            - APP_NAME="CheeseLab Speedtest Tracker"
-            - APP_URL="https://speedtest.jakefarrell.ie"
-            - ASSET_URL="https://speedtest.jakefarrell.ie"
-            - APP_TIMEZONE=Europe/Dublin
-            - SPEEDTEST_SCHEDULE="0 * * * *"
-        volumes:
-            - ~/storage/speedtest-tracker/new-config:/config
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    restart: unless-stopped
+    container_name: speedtest-tracker
+    ports:
+      - 8765:80
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - APP_KEY=${APP_KEY}
+      - DB_CONNECTION=sqlite
+      - APP_NAME="CheeseLab Speedtest Tracker"
+      - APP_URL="https://speedtest.jakefarrell.ie"
+      - ASSET_URL="https://speedtest.jakefarrell.ie"
+      - APP_TIMEZONE=Europe/Dublin
+      - SPEEDTEST_SCHEDULE="0 * * * *"
+    volumes:
+      - ~/storage/speedtest-tracker:/config
+
 ```
 
 ## Notes
