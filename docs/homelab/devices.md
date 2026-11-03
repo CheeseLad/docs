@@ -12,7 +12,7 @@
 ## Phone
 
 - **Model**: Apple iPhone 13 Pro
-- **OS**: iOS 26.5
+- **OS**: iOS 27.2
 - **CPU**: Apple A15 Bionic
 - **RAM**: 6GB
 - **Storage**: 128GB NVMe SSD
@@ -32,9 +32,9 @@
 ## Desktop
 
 - **Model**: Custom Build
-- **OS**: Windows 10
-- **CPU**: Intel Core i7-7700K
+- **OS**: Windows 11
+- **CPU**: AMD Ryzen 7 9800X3D
 - **GPU**: Nvidia GTX 1060 6GB
-- **RAM**: 24GB DDR4
-- **Storage**: 512GB NVMe SSD, 1TB HDD, 2TB HDD, 5TB HDD
+- **RAM**: 32GB DDR5 6000MHz
+- **Storage**: 2TB NVMe SSD, 1TB HDD, 2TB HDD
 - **Offsite Backup**: Rclone encrypted to Google Drive

@@ -6,23 +6,25 @@ This VPS is used to host various services and applications that I use on a daily
 
 ## Specs
 
-- 1 vCPU
-- 2GB RAM
-- 20GB SSD
-- 100Mbps Network
-- Provider: [OVH](https://www.ovh.ie/)
+- **Provider**: [OVH](https://www.ovh.ie/)
+- **OS**: Debian 13 Trixie
+- **vCPU**: 1
+- **RAM**: 2GB
+- **Storage**: 20GB SSD
+- **Network**: 100Mbps
 
 ## Services (Docker)
 
-- [Clubs & Socs API](services/clubsandsocs-api.md)
-- [MySQL Database](services/database.md)
-- [DCU Fotosoc Website](services/dcufotosoc-website.md)
-- [Zipline](services/zipline.md)
-- [Plausible](services/plausible.md)
-- [Shlink](services/shlink.md)
-- [Personal Website](services/portfolio.md)
-- [Portainer](services/portainer.md)
-- [Traefik](services/traefik.md)
+- [Clubs & Socs API](./services/clubsandsocs-api.md)
+- [DCU Clubs & Socs](./services/dcuclubsandsocs.md)
+- [DCU Fotosoc Website](./services/dcufotosoc-website.md)
+- [Legacy Leaderboards](./services/legacy-leaderboards.md)
+- [Listmonk](./services/listmonk.md)
+- [MySQL Database](./services/database.md)
+- [Plausible](./services/plausible.md)
+- [Portainer](./services/portainer.md)
+- [Portfolio](./services/portfolio.md)
+- [Shlink](./services/shlink.md)
 
 ## Services (Native)
 

@@ -25,6 +25,14 @@ SERVICE_DEVICES = {
             "title": "homelab",
             "prompt_title": "home server",
             "repo": "https://github.com/CheeseLad/homelab",
+            "specs": [
+                "- **Model**: Dell OptiPlex 5060 SFF",
+                "- **OS**: Debian 13 Trixie",
+                "- **CPU**: Intel Core i5-8400",
+                "- **RAM**: 48GB DDR4 2400MHz (2x 16GB, 2x 8GB)",
+                "- **Storage**: 256GB NVMe SSD, 2TB HDD, 6TB HDD",
+                "- **Offsite Backup**: Rclone encrypted to Google Drive"
+            ]
         }
     ],
     "vps": [
@@ -32,6 +40,14 @@ SERVICE_DEVICES = {
             "title": "vps",
             "prompt_title": "virtual private server",
             "repo": "https://github.com/CheeseLad/vps",
+            "specs": [
+                "- **Provider**: [OVH](https://www.ovh.ie/)",
+                "- **OS**: Debian 13 Trixie",
+                "- **vCPU**: 1",
+                "- **RAM**: 2GB",
+                "- **Storage**: 20GB SSD",
+                "- **Network**: 100Mbps"
+            ]
         }
     ],
 }
@@ -42,6 +58,11 @@ IGNORED_ACCESS_NOTES_SERVICES = {
     "mysql-database",
     "better-file-search-postgres",
     "database",
+}
+
+IGNORED_DESCRIPTION_SERVICES = {
+    "dcuclubsandsocs",
+    "legacy-leaderboards",
 }
 
 TITLE_REPLACEMENTS = {
@@ -63,6 +84,10 @@ TITLE_REPLACEMENTS = {
     "DCUfotosoc Generator": "DCU Fotosoc Newsletter Generator",
     "Csc1047": "CSC1047",
     "Thecollegeview": "The College View",
+    "DCUfotosoc": "DCU Fotosoc",
+    "Database": "MySQL Database",
+    "DCUclubsandsocs": "DCU Clubs & Socs",
+    "MySQL MySQL": "MySQL"
 }
 
 NOTES_REPLACEMENTS = {
@@ -290,22 +315,26 @@ def generate_markdown(device, service_folder_name, compose_content, ports_info, 
     title_name = format_title(service_folder_name)
     notes = build_notes(device["title"], service_folder_name, compose_content, compose_data, ports_info)
 
-    print(f"Generating description for: {title_name}")
     existing_md_path = output_dir / f"{service_folder_name}.md"
     description = None
 
-    if existing_md_path.exists():
-        existing_content = existing_md_path.read_text(encoding="utf-8")
-        desc_match = re.search(
-            r"## Description\s+([\s\S]+?)\s+## Docker Compose File", existing_content
-        )
-        if desc_match:
-            description = desc_match.group(1).strip()
-            print(f"Using existing description for: {title_name}")
+    if service_folder_name in IGNORED_DESCRIPTION_SERVICES:
+        description = "None"
+        print(f"Skipping description for ignored service: {title_name}")
+    else:
+        print(f"Generating description for: {title_name}")
+        if existing_md_path.exists():
+            existing_content = existing_md_path.read_text(encoding="utf-8")
+            desc_match = re.search(
+                r"## Description\s+([\s\S]+?)\s+## Docker Compose File", existing_content
+            )
+            if desc_match and desc_match.group(1).strip() != "None":
+                description = desc_match.group(1).strip()
+                print(f"Using existing description for: {title_name}")
 
-    if not description:
-        prompt = generate_prompt(device["prompt_title"], f"{title_name} ({image})")
-        description = get_ai_response(prompt)
+        if not description:
+            prompt = generate_prompt(device["prompt_title"], f"{title_name} ({image})")
+            description = get_ai_response(prompt)
 
     md_content = f"""# {title_name}
     
@@ -359,6 +388,169 @@ def process_services_dir(device, services_dir, output_dir):
         if md_file.stem not in existing_service_folders:
             md_file.unlink()
             print(f"Deleted orphaned markdown: {md_file}")
+
+    info_md_path = ROOT_DIR / "docs" / device["title"] / "info.md"
+    update_info_md(output_dir, info_md_path, specs=device.get("specs"))
+
+    devices_md_path = ROOT_DIR / "docs" / device["title"] / "devices.md"
+    if device.get("specs") and devices_md_path.exists():
+        update_devices_md(device["title"], device["specs"], devices_md_path)
+
+    mkdocs_path = ROOT_DIR / "mkdocs.yml"
+    update_mkdocs_yml(device["title"], output_dir, mkdocs_path)
+
+
+def update_info_md(services_output_dir, info_md_path, specs=None):
+    """Update the ## Specs and ## Services (Docker) sections in info.md."""
+    services_output_dir = Path(services_output_dir)
+    info_md_path = Path(info_md_path)
+
+    if not info_md_path.exists():
+        print(f"Warning: info.md not found at {info_md_path}")
+        return
+
+    info_content = info_md_path.read_text(encoding="utf-8")
+
+    if specs:
+        specs_block = "\n".join(specs)
+        model_val = None
+        os_val = None
+        for line in specs:
+            model_match = re.match(r"-\s*\*\*Model\*\*:\s*(.+)", line)
+            if model_match:
+                model_val = model_match.group(1).strip()
+            os_match = re.match(r"-\s*\*\*OS\*\*:\s*(.+)", line)
+            if os_match:
+                os_val = os_match.group(1).strip()
+
+        if model_val and os_val:
+            intro_pattern = (
+                r"My Homelab consists of a .+ running .+ that was saved from an e-waste bin in my college\."
+            )
+            intro_replacement = (
+                f"My Homelab consists of a {model_val} running {os_val} "
+                "that was saved from an e-waste bin in my college."
+            )
+            if re.search(intro_pattern, info_content):
+                info_content = re.sub(
+                    intro_pattern,
+                    lambda _: intro_replacement,
+                    info_content,
+                    count=1,
+                )
+
+        specs_pattern = r"(## Specs\r?\n\r?\n)([\s\S]*?)(\r?\n\r?\n## Services \(Docker\))"
+        if re.search(specs_pattern, info_content):
+            info_content = re.sub(
+                specs_pattern,
+                lambda m: f"{m.group(1)}{specs_block}{m.group(3)}",
+                info_content,
+                count=1,
+            )
+            print(f"Updated Specs in: {info_md_path}")
+
+    service_entries = []
+    for md_file in services_output_dir.glob("*.md"):
+        content = md_file.read_text(encoding="utf-8")
+        heading_match = re.search(r"^#\s+(.+)", content, flags=re.MULTILINE)
+        service_name = (
+            heading_match.group(1).strip()
+            if heading_match
+            else format_title(md_file.stem)
+        )
+        service_entries.append((service_name, f"- [{service_name}](./services/{md_file.name})"))
+
+    service_entries.sort(key=lambda item: item[0].lower())
+    services_block = "\n".join(entry for _, entry in service_entries)
+
+    pattern = r"(## Services \(Docker\)\r?\n\r?\n)([\s\S]*?)(\r?\n\r?\n## Services \(Native\))"
+    if not re.search(pattern, info_content):
+        print(f"Warning: Could not find '## Services (Docker)' section in {info_md_path}")
+        return
+
+    updated_content = re.sub(
+        pattern,
+        lambda m: f"{m.group(1)}{services_block}{m.group(3)}",
+        info_content,
+        count=1,
+    )
+    info_md_path.write_text(updated_content, encoding="utf-8")
+    print(f"Updated Docker services list in: {info_md_path}")
+
+
+def update_devices_md(device_title, specs, devices_md_path):
+    """Update the device specs section (e.g. ## Homelab) in devices.md."""
+    devices_md_path = Path(devices_md_path)
+    if not devices_md_path.exists() or not specs:
+        return
+
+    devices_content = devices_md_path.read_text(encoding="utf-8")
+    specs_block = "\n".join(specs)
+    section_heading = device_title.title()
+    pattern = rf"(## {re.escape(section_heading)}\r?\n\r?\n)([\s\S]*?)(\r?\n\r?\n## |\Z)"
+
+    if not re.search(pattern, devices_content):
+        print(f"Warning: Could not find '## {section_heading}' section in {devices_md_path}")
+        return
+
+    updated_content = re.sub(
+        pattern,
+        lambda m: f"{m.group(1)}{specs_block}{m.group(3)}",
+        devices_content,
+        count=1,
+    )
+    devices_md_path.write_text(updated_content, encoding="utf-8")
+    print(f"Updated {section_heading} specs in: {devices_md_path}")
+
+
+def update_mkdocs_yml(device_title, services_output_dir, mkdocs_path):
+    """Update the Service Information list for the device in mkdocs.yml."""
+    services_output_dir = Path(services_output_dir)
+    mkdocs_path = Path(mkdocs_path)
+
+    if not mkdocs_path.exists():
+        print(f"Warning: mkdocs.yml not found at {mkdocs_path}")
+        return
+
+    service_entries = []
+    for md_file in services_output_dir.glob("*.md"):
+        content = md_file.read_text(encoding="utf-8")
+        heading_match = re.search(r"^#\s+(.+)", content, flags=re.MULTILINE)
+        service_name = (
+            heading_match.group(1).strip()
+            if heading_match
+            else format_title(md_file.stem)
+        )
+        service_entries.append(
+            (service_name, f"      - {service_name}: {device_title}/services/{md_file.name}")
+        )
+
+    service_entries.sort(key=lambda item: item[0].lower())
+    services_block = "\n".join(entry for _, entry in service_entries) + "\n"
+
+    section_name = "VPS" if device_title.lower() == "vps" else device_title.title()
+    mkdocs_content = mkdocs_path.read_text(encoding="utf-8")
+
+    pattern = (
+        rf"(^- {re.escape(section_name)}:\r?\n"
+        rf"(?:  - (?!Service Information:).*\r?\n)*"
+        rf"  - Service Information:\r?\n)"
+        rf"(?:[ ]{{4,}}- .*(?:\r?\n|$))*"
+    )
+
+    if not re.search(pattern, mkdocs_content, flags=re.MULTILINE):
+        print(f"Warning: Could not find 'Service Information:' under '{section_name}' in {mkdocs_path}")
+        return
+
+    updated_content = re.sub(
+        pattern,
+        lambda m: f"{m.group(1)}{services_block}",
+        mkdocs_content,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    mkdocs_path.write_text(updated_content, encoding="utf-8")
+    print(f"Updated {section_name} Service Information in: {mkdocs_path}")
 
 
 def _handle_remove_readonly(func, path, exc):

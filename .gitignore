@@ -1,4 +1,4 @@
-test
-old
+tmp
 *.env
 *.pyc
+docs/projects
