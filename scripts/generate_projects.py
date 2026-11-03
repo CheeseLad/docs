@@ -14,7 +14,9 @@ load_dotenv()
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 TEMP_DIR = Path(".\\tmp")
-OUTPUT_DIR = ROOT_DIR / "docs" / "projects"
+DOCS_DIR = ROOT_DIR / "docs"
+ASSETS_DIR = DOCS_DIR / "assets"
+OUTPUT_DIR = DOCS_DIR / "projects"
 MKDOCS_PATH = ROOT_DIR / "mkdocs.yml"
 
 REPO_ACCOUNT_URL = "https://github.com/CheeseLad"
@@ -48,6 +50,7 @@ EXCLUDED_REPOS = {
 
 PRESERVED_MD_FILES = {
     "email-system",
+    "info",
 }
 
 CUSTOM_FOLDER_RULES = [
@@ -104,6 +107,7 @@ TITLE_REPLACEMENTS = {
     "Database": "MySQL Database",
     "DCUclubsandsocs": "DCU Clubs & Socs",
     "MySQL MySQL": "MySQL",
+    "Mps": "MPS",
     "mps": "MPS",
 }
 
@@ -250,6 +254,71 @@ def format_readme_content(repo_name, html_url, readme_content):
     return f"{heading_line}\n\n{link_line}\n"
 
 
+def copy_and_rewrite_repo_assets(readme_content, repo_path, target_dir):
+    """Copy repo files referenced by relative links in readme_content to docs/assets/projects/<repo_name> and rewrite links."""
+    repo_path = Path(repo_path)
+    target_dir = Path(target_dir)
+    repo_name = repo_path.name
+
+    def resolve_and_copy(raw_url):
+        url = raw_url.strip()
+        if not url or url.startswith(("http://", "https://", "mailto:", "tel:", "data:", "#")):
+            return raw_url
+
+        # Split optional markdown link title, e.g. 'path/to/img.png "Title"'
+        title_part = ""
+        title_match = re.match(r'^([^\s]+)(\s+["\'].*["\'])$', url)
+        if title_match:
+            url = title_match.group(1)
+            title_part = title_match.group(2)
+
+        # Separate query/fragment from path
+        suffix = ""
+        for sep in ("?", "#"):
+            if sep in url:
+                idx = url.index(sep)
+                suffix = url[idx:]
+                url = url[:idx]
+                break
+
+        clean_rel = url.lstrip("./").lstrip("/")
+        if not clean_rel or clean_rel.startswith("assets/") or "/assets/" in url:
+            return raw_url
+
+        source_file = (repo_path / clean_rel).resolve()
+        try:
+            source_file.relative_to(repo_path.resolve())
+        except ValueError:
+            return raw_url
+
+        if not source_file.is_file():
+            return raw_url
+
+        asset_dest = ASSETS_DIR / "projects" / repo_name / clean_rel
+        asset_dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source_file, asset_dest)
+        print(f"Copied asset: {source_file} -> {asset_dest}")
+
+        rel_link = Path(os.path.relpath(asset_dest, target_dir)).as_posix()
+        return f"{rel_link}{suffix}{title_part}"
+
+    # Rewrite Markdown links/images: ![alt](url) and [text](url)
+    md_link_pattern = re.compile(r"(!?\[[^\]]*\]\()([^)]+)(\))")
+    readme_content = md_link_pattern.sub(
+        lambda m: f"{m.group(1)}{resolve_and_copy(m.group(2))}{m.group(3)}",
+        readme_content,
+    )
+
+    # Rewrite HTML src/href attributes: src="url" or href="url"
+    html_attr_pattern = re.compile(r'((?:src|href)=["\'])([^"\']+)(["\'])')
+    readme_content = html_attr_pattern.sub(
+        lambda m: f"{m.group(1)}{resolve_and_copy(m.group(2))}{m.group(3)}",
+        readme_content,
+    )
+
+    return readme_content
+
+
 def clone_and_generate_project(repo, output_dir):
     """Clone a repository and write its README as a markdown file in output_dir (or rule subfolder)."""
     repo_name = repo["name"]
@@ -279,6 +348,7 @@ def clone_and_generate_project(repo, output_dir):
             print(f"Warning: Empty README in {repo_name}, skipping...")
             return None
 
+        readme_content = copy_and_rewrite_repo_assets(readme_content, repo_path, target_dir)
         formatted_content = format_readme_content(repo_name, html_url, readme_content)
         output_path = target_dir / f"{repo_name}.md"
         output_path.write_text(formatted_content, encoding="utf-8")
@@ -291,6 +361,27 @@ def clone_and_generate_project(repo, output_dir):
         if repo_path.exists():
             print(f"Cleaning up {repo_path}...")
             remove_dir(repo_path)
+
+
+def has_missing_relative_assets(markdown_content, target_dir):
+    """Return True if markdown_content has relative file links that do not exist under target_dir."""
+    target_dir = Path(target_dir)
+    md_links = re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", markdown_content)
+    html_links = re.findall(r'(?:src|href)=["\']([^"\']+)["\']', markdown_content)
+
+    for raw_url in (*md_links, *html_links):
+        url = raw_url.strip().split()[0] if raw_url.strip() else ""
+        if not url or url.startswith(("http://", "https://", "mailto:", "tel:", "data:", "#")):
+            continue
+        for sep in ("?", "#"):
+            if sep in url:
+                url = url[: url.index(sep)]
+        if not url:
+            continue
+        resolved = (target_dir / url).resolve()
+        if not resolved.exists():
+            return True
+    return False
 
 
 def apply_folder_rules(output_dir):
@@ -319,10 +410,82 @@ def apply_folder_rules(output_dir):
         repo_name = target_path.stem
         html_url = f"{REPO_ACCOUNT_URL.rstrip('/')}/{repo_name}"
         existing_content = target_path.read_text(encoding="utf-8", errors="replace")
+
+        if has_missing_relative_assets(existing_content, target_dir):
+            repo_path = TEMP_DIR / repo_name
+            clone_url = f"{html_url}.git"
+            remove_dir(repo_path)
+            TEMP_DIR.mkdir(parents=True, exist_ok=True)
+            try:
+                print(f"Cloning {clone_url} to resolve missing assets for {repo_name}...")
+                subprocess.check_call(
+                    ["git", "clone", "--depth", "1", clone_url, str(repo_path)]
+                )
+                existing_content = copy_and_rewrite_repo_assets(
+                    existing_content, repo_path, target_dir
+                )
+            except subprocess.CalledProcessError as e:
+                print(f"Error cloning repository {clone_url} for assets: {e}")
+            finally:
+                if repo_path.exists():
+                    remove_dir(repo_path)
+
         formatted_content = format_readme_content(repo_name, html_url, existing_content)
-        if existing_content != formatted_content:
+        if target_path.read_text(encoding="utf-8", errors="replace") != formatted_content:
             target_path.write_text(formatted_content, encoding="utf-8")
             print(f"Updated formatting in: {target_path}")
+
+
+def update_info_md(projects_output_dir, info_md_path):
+    """Create or update docs/projects/info.md with ## All for ungrouped projects and sections for each subfolder."""
+    projects_output_dir = Path(projects_output_dir)
+    info_md_path = Path(info_md_path)
+
+    default_intro = (
+        "# Projects Information\n\n"
+        "## Introduction\n\n"
+        "This is a collection of various personal, college, and society projects that I have worked on."
+    )
+
+    intro_section = default_intro
+    if info_md_path.exists():
+        existing_content = info_md_path.read_text(encoding="utf-8")
+        intro_match = re.match(r"([\s\S]*?)(?=\r?\n\r?\n## (?:All\b))", existing_content)
+        if intro_match and intro_match.group(1).strip():
+            intro_section = intro_match.group(1).strip()
+
+    ungrouped_entries = []
+    for md_file in projects_output_dir.glob("*.md"):
+        if md_file.stem == "info":
+            continue
+        project_title = format_title(md_file.stem)
+        ungrouped_entries.append((project_title, f"- [{project_title}](./{md_file.name})"))
+    ungrouped_entries.sort(key=lambda item: item[0].lower())
+
+    sections = []
+    all_block = "\n".join(entry for _, entry in ungrouped_entries) if ungrouped_entries else "None"
+    sections.append(f"## All\n\n{all_block}")
+
+    folder_sections = []
+    for subdir in sorted(p for p in projects_output_dir.iterdir() if p.is_dir()):
+        sub_entries = []
+        for md_file in subdir.glob("*.md"):
+            project_title = format_title(md_file.stem)
+            sub_entries.append(
+                (project_title, f"- [{project_title}](./{subdir.name}/{md_file.name})")
+            )
+        if sub_entries:
+            sub_entries.sort(key=lambda item: item[0].lower())
+            folder_title = format_title(subdir.name)
+            sub_block = "\n".join(entry for _, entry in sub_entries)
+            folder_sections.append((folder_title, f"## {folder_title}\n\n{sub_block}"))
+
+    folder_sections.sort(key=lambda item: item[0].lower())
+    sections.extend(block for _, block in folder_sections)
+
+    updated_content = f"{intro_section}\n\n" + "\n\n".join(sections) + "\n"
+    info_md_path.write_text(updated_content, encoding="utf-8")
+    print(f"Updated projects info in: {info_md_path}")
 
 
 def update_mkdocs_yml(projects_output_dir, mkdocs_path):
@@ -336,11 +499,20 @@ def update_mkdocs_yml(projects_output_dir, mkdocs_path):
 
     project_entries = []
 
+    ungrouped_entries = []
     for md_file in projects_output_dir.glob("*.md"):
+        if md_file.stem == "info":
+            continue
         project_title = format_title(md_file.stem)
-        project_entries.append(
-            (project_title, f"  - {project_title}: projects/{md_file.name}")
+        ungrouped_entries.append(
+            (project_title, f"      - {project_title}: projects/{md_file.name}")
         )
+    if ungrouped_entries:
+        ungrouped_entries.sort(key=lambda item: item[0].lower())
+        all_block = "  - All:\n" + "\n".join(
+            entry for _, entry in ungrouped_entries
+        )
+        project_entries.append(("All", all_block))
 
     for subdir in sorted(p for p in projects_output_dir.iterdir() if p.is_dir()):
         sub_entries = []
@@ -358,7 +530,11 @@ def update_mkdocs_yml(projects_output_dir, mkdocs_path):
             project_entries.append((folder_title, folder_block))
 
     project_entries.sort(key=lambda item: item[0].lower())
-    projects_block = "\n".join(entry for _, entry in project_entries) + "\n"
+    nav_lines = []
+    if (projects_output_dir / "info.md").exists():
+        nav_lines.append("  - Projects Information: projects/info.md")
+    nav_lines.extend(entry for _, entry in project_entries)
+    projects_block = "\n".join(nav_lines) + "\n"
 
     mkdocs_content = mkdocs_path.read_text(encoding="utf-8")
 
@@ -403,6 +579,8 @@ def main():
                     md_file.unlink()
                     print(f"Deleted orphaned project markdown: {md_file}")
 
+        info_md_path = OUTPUT_DIR / "info.md"
+        update_info_md(OUTPUT_DIR, info_md_path)
         update_mkdocs_yml(OUTPUT_DIR, MKDOCS_PATH)
     finally:
         remove_dir(TEMP_DIR)

@@ -17,15 +17,15 @@ Bringing the old [dcuclubsandsocs.ie](https://dcuclubsandsocs.jakefarrell.ie) si
 ## Screenshots
 
 ### 1. Society Selection
-![My Societies](docs/screenshots/mysocieties.png)
+![My Societies](../assets/projects/dcuclubsandsocs/docs/screenshots/mysocieties.png)
 *Quickly search, select, and manage your favorite societies.*
 
 ### 2. Events Dashboard
-![My Events](docs/screenshots/myevents.png)
+![My Events](../assets/projects/dcuclubsandsocs/docs/screenshots/myevents.png)
 *Keep track of upcoming and past events from the societies you follow.*
 
 ### 3. Society Detail View
-![Society Details](docs/screenshots/detail.png)
+![Society Details](../assets/projects/dcuclubsandsocs/docs/screenshots/detail.png)
 *View links, committee members, memberships, and merchandise for a specific society.*
 
 ## Tech Stack

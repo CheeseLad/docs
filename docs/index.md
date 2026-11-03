@@ -12,4 +12,4 @@ This is a collection of documentation for various projects and services that I h
 
 - [Homelab](homelab/info.md)
 - [VPS](vps/info.md)
-- [Projects](projects/email-system.md)
+- [Projects](projects/info.md)
